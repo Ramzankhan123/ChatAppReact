@@ -4,7 +4,8 @@ const Color ={
     charcol : '#474747',
     white : '#FFFFFF',
     blue : '#177CD6',
-    smoke : '#EEEEEE'
+    smoke : '#EEEEEE',
+    Darkwhite : '#DFDEDE'
 }
 
 export default Color;

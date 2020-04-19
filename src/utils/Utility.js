@@ -8,6 +8,6 @@ export default class Utility{
     static isEmailValid = (term) =>{
         const expression = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
         let isValid = expression.test(String(term).toLowerCase())
-        return
+        return isValid 
     }
 }
