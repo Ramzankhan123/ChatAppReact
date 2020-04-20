@@ -1,5 +1,5 @@
 import {Dimensions, Platform } from 'react-native';
-let headerHeight = Platform.OS === 'ios' ? 66 : 46
+let headerHeight = Platform.OS === 'ios' ? 90 : 46
 let footerHeight = 55
 
 const constants = {

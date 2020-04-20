@@ -14,7 +14,7 @@ import firebase from '../firebase/Firebase';
 
 
 
-function SigninScreen() {
+function SigninScreen({navigation}) {
     const [email, setEmail] = useState('');
     const [password, setPasword] = useState('');
     const [emailError, setEmailError] = useState('');
@@ -47,7 +47,13 @@ function SigninScreen() {
             firebase.auth().signInWithEmailAndPassword(email, password)
                 .then(user => {
                     setIsLoading(false);
-                    Alert.alert('Logged in ');
+                   // navigation.navigate('GroupPage');
+                    navigation.reset({
+                        index : 0,
+                        routes : [{name : "GroupPage"}]
+                    })
+                    //Alert.alert('Logged in ');
+
                 })
                 .catch((error) => {
                     firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -56,7 +62,7 @@ function SigninScreen() {
                             Alert.alert("New User Create Please Login Again !");
                         })
                         .catch((error) => {
-                            
+
                             setIsLoading(false);
                             console.log("firebase error=>", error);
                             Alert.alert(error.message);
