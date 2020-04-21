@@ -41,10 +41,11 @@ function SigninScreen({navigation}) {
             registration(email , password);
         }
     }
-    registration = (email, password) => {
+
+    registration = async(email, password) => {
         try {
             setIsLoading(true);
-            firebase.auth().signInWithEmailAndPassword(email, password)
+            await firebase.auth().signInWithEmailAndPassword(email, password)
                 .then(user => {
                     setIsLoading(false);
                    // navigation.navigate('GroupPage');
@@ -62,7 +63,6 @@ function SigninScreen({navigation}) {
                             Alert.alert("New User Create Please Login Again !");
                         })
                         .catch((error) => {
-
                             setIsLoading(false);
                             console.log("firebase error=>", error);
                             Alert.alert(error.message);
@@ -73,6 +73,7 @@ function SigninScreen({navigation}) {
             Alert.alert(error.message);
         }
     }
+
     return (
         //   <DismissKeyBoard>
         <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>

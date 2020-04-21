@@ -5,7 +5,9 @@ const Color ={
     white : '#FFFFFF',
     blue : '#177CD6',
     smoke : '#EEEEEE',
-    Darkwhite : '#DFDEDE'
+    Darkwhite : '#DFDEDE',
+    green  : '#2DB67C',
+    Gray : '#A9A9A9'
 }
 
 export default Color;

@@ -33,17 +33,19 @@ function GroupScreen({ navigation }) {
     useEffect(() => {
         getChats();
     }, []);
-    function getChats() {
+   async function getChats() {
         const db = firestore
         var groupArray = []
 
-        db.collection("groups")
+       await db.collection("groups")
+
             .onSnapshot(function (snapshot) {
                 snapshot.docChanges().forEach(function (change) {
                     if (change.type == "added") {
                         console.log("New Group", change.doc.data())
                         groupArray.push(change.doc.data())
                     }
+
                     if (change.type === 'modified') {
                         console.log("Modified Group : ", change.doc.data())
                     }
@@ -57,7 +59,12 @@ function GroupScreen({ navigation }) {
 
     return (
         <View style={styles.container}>
-            <MyHeader title='Group Page' imageLeft={images.logout}
+            <MyHeader title='Group Page' 
+                imageLeft={images.logout}  onPressLeft={() => {  
+                    navigation.reset({
+                    index : 0,
+                    routes : [{name : "SignUpPage"}]
+                }) }}
                 imageRight={images.add_icon} onPressRight={() => { navigation.navigate('AddGroupPage') }}
             />
             <FlatList

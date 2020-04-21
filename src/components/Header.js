@@ -57,8 +57,10 @@ const styles = StyleSheet.create({
     },
     titleView :{
         margin : 10,
-        marginHorizontal : 90,
-        padding : 5
+        width : constants.screenWidth - 155,
+        justifyContent : 'center',
+        padding : 5,
+        alignItems :'center'
     },
     ButtonRight :{
         margin : 5,
